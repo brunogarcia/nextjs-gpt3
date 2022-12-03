@@ -6,7 +6,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+> 🔔 Rename the file `.env.example` to `.env.local`. And then add your own API key from [OpenAI](https://beta.openai.com/account/api-keys). 
+
+Then, run the development server:
 
 ```bash
 yarn dev
