@@ -1,6 +1,6 @@
-# Build your own AI writing assistant w/ GPT-3
+# AI writing assistant w/ GPT-3
 
-A project following the instructions of [Buildspace](https://buildspace.so/p/build-ai-writing-assistant-gpt3) course.
+A project following the instructions of [Buildspace](https://buildspace.so/builds/ai-writer) course.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
