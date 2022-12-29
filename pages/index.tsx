@@ -2,8 +2,8 @@ import { ChangeEvent, useState } from 'react';
 import Head from 'next/head'
 
 export default function Home() {
-  const [userInput, setUserInput] = useState('');
-  const [apiOutput, setApiOutput] = useState('')
+  const [userInput, setUserInput] = useState('What are the top 3 tokens sorted by USD volume?');
+  const [apiOutput, setApiOutput] = useState<any>(null)
   const [isGenerating, setIsGenerating] = useState(false)
   
   const callGenerateEndpoint = async () => {
@@ -21,10 +21,8 @@ export default function Home() {
       });
     
       const data = await response.json();
-      const { output } = data;
-      console.log("OpenAI replied...", output.text)
     
-      setApiOutput(`${output.text}`);
+      setApiOutput(data);
     } catch (error) {
       console.log(error);
     } finally {
@@ -39,18 +37,18 @@ export default function Home() {
   return (
     <div className="root">
       <Head>
-        <title>Ask anything to Stephen Hawking</title>
+        <title>Uniswap Data</title>
         <meta name="description" content="AI writing assistant w/ GPT-3" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>AI Stephen Hawking</h1>
+            <h1>Uniswap Data</h1>
           </div>
 
           <div className="header-subtitle">
-            <h2>I will give you my opinion about any astronomy subject</h2>
+            <h2>Enter a query about Uniswap's data:</h2>
           </div>
         </div>
 
@@ -80,9 +78,14 @@ export default function Home() {
                   <h3>Answer 👇🏼</h3>
                 </div>
               </div>
-              <div className="output-content">
-                <p>{apiOutput}</p>
-              </div>
+              <pre className="output-content">
+                {'Code:\n'}
+                {apiOutput.code}
+                {'\nQuery:\n'}
+                {apiOutput.query}
+                {'\n\nQuery:\n'}
+                {JSON.stringify(apiOutput.output, null, 2)}
+              </pre>
             </div>
           )}
         </div>
